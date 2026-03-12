@@ -1,0 +1,5 @@
+# Rasa
+rasa==3.6.20
+
+# Required for Rasa actions
+requests==2.31.0
