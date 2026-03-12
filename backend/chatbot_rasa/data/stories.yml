@@ -1,0 +1,145 @@
+version: "3.1"
+
+stories:
+# Greeting story
+- story: greet and ask for quote
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+# Goodbye story
+- story: say goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+# Thank you story
+- story: thank the bot
+  steps:
+    - intent: thank
+    - action: utter_thank
+
+# Request motivation quote
+- story: request motivation quote
+  steps:
+    - intent: request_motivation_quote
+    - action: action_get_motivation_quote
+    - action: utter_motivation_quote
+
+# Request love quote
+- story: request love quote
+  steps:
+    - intent: request_love_quote
+    - action: action_get_love_quote
+    - action: utter_love_quote
+
+# Request life quote
+- story: request life quote
+  steps:
+    - intent: request_life_quote
+    - action: action_get_life_quote
+    - action: utter_life_quote
+
+# Request success quote
+- story: request success quote
+  steps:
+    - intent: request_success_quote
+    - action: action_get_success_quote
+    - action: utter_success_quote
+
+# Request inspirational quote
+- story: request inspirational quote
+  steps:
+    - intent: request_inspirational_quote
+    - action: action_get_inspirational_quote
+    - action: utter_inspirational_quote
+
+# Request friendship quote
+- story: request friendship quote
+  steps:
+    - intent: request_friendship_quote
+    - action: action_get_friendship_quote
+    - action: utter_friendship_quote
+
+# Request wisdom quote
+- story: request wisdom quote
+  steps:
+    - intent: request_wisdom_quote
+    - action: action_get_wisdom_quote
+    - action: utter_wisdom_quote
+
+# Request any quote
+- story: request any quote
+  steps:
+    - intent: request_any_quote
+    - action: action_get_any_quote
+    - action: utter_any_quote
+
+# Mood: Happy
+- story: user is happy
+  steps:
+    - intent: mood_happy
+    - action: action_get_mood_quote
+
+# Mood: Sad
+- story: user is sad
+  steps:
+    - intent: mood_sad
+    - action: action_get_mood_quote
+
+# Mood: Stressed
+- story: user is stressed
+  steps:
+    - intent: mood_stressed
+    - action: action_get_mood_quote
+
+# Mood: Tired
+- story: user is tired
+  steps:
+    - intent: mood_tired
+    - action: action_get_mood_quote
+
+# Mood: Excited
+- story: user is excited
+  steps:
+    - intent: mood_excited
+    - action: action_get_mood_quote
+
+# Mood: Angry
+- story: user is angry
+  steps:
+    - intent: mood_angry
+    - action: action_get_mood_quote
+
+# Affirm after quote
+- story: affirm after getting quote
+  steps:
+    - intent: request_motivation_quote
+    - action: action_get_motivation_quote
+    - action: utter_motivation_quote
+    - intent: affirm
+    - action: utter_affirm
+
+# Request another quote after getting one
+- story: request another quote
+  steps:
+    - intent: request_motivation_quote
+    - action: action_get_motivation_quote
+    - action: utter_motivation_quote
+    - intent: request_love_quote
+    - action: action_get_love_quote
+    - action: utter_love_quote
+
+# Interactive happy path
+- story: happy path
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: request_motivation_quote
+    - action: action_get_motivation_quote
+    - action: utter_motivation_quote
+    - intent: thank
+    - action: utter_thank
+    - intent: goodbye
+    - action: utter_goodbye
+

@@ -1,0 +1,49 @@
+# Configuration for Rasa NLU and Core
+# https://rasa.com/docs/rasa/model-configuration
+
+language: en
+
+pipeline:
+# # No configuration for supervised_embeddings pipeline as it's the default
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  ngram_range: [2, 3]
+- name: CountVectorsFeaturizer
+  analyzer: word
+  ngram_range: [1, 2]
+  vocabulary_size: 5000
+- name: DIETClassifier
+  entity_recognition: true
+  epochs: 100
+  learning_rate: 0.001
+  ranking_length: 10
+  transformer_size: 256
+  number_of_transformer_layers: 2
+  use_sentence_attention: true
+  bald_attention: false
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 100
+  retrieval_intent: ask_quotes
+- name: FallbackClassifier
+  threshold: 0.7
+  ambiguity_threshold: 0.1
+
+# Policies for dialogue management
+# https://rasa.com/docs/rasa/policies
+policies:
+- name: MemoizationPolicy
+  max_history: 3
+- name: RulePolicy
+  core_fallback_threshold: 0.4
+  core_fallback_action_name: action_default_fallback
+- name: TEDPolicy
+  epochs: 100
+  max_history: 5
+  core_fallback_threshold: 0.4
+  core_fallback_action_name: action_default_fallback
+
+assistant_id: 20260308-101048-global-range

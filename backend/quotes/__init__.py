@@ -1,0 +1,2 @@
+# Quotes Django app
+

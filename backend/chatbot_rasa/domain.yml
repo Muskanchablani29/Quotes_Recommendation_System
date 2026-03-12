@@ -1,0 +1,137 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - thank
+  - request_motivation_quote
+  - request_love_quote
+  - request_life_quote
+  - request_success_quote
+  - request_inspirational_quote
+  - request_friendship_quote
+  - request_wisdom_quote
+  - request_any_quote
+  - mood_happy
+  - mood_sad
+  - mood_stressed
+  - mood_tired
+  - mood_excited
+  - mood_angry
+
+responses:
+  # Greeting responses
+  utter_greet:
+    - text: "Hello! I'm your Quotes Assistant. I can help you find inspiring quotes for any mood or topic. What kind of quote would you like today?"
+    - text: "Hi there! Looking for some inspiration? Tell me what kind of quote you need!"
+    - text: "Welcome! I have quotes for motivation, love, life, success, and more. What would you like?"
+
+  # Goodbye responses
+  utter_goodbye:
+    - text: "Goodbye! Come back whenever you need more inspiration!"
+    - text: "Take care! Remember, every day is a new opportunity!"
+    - text: "Bye! Keep spreading positivity wherever you go!"
+
+  # Affirmation responses
+  utter_affirm:
+    - text: "Great! I'm glad I could help!"
+    - text: "That's wonderful! Let me know if you need more quotes!"
+    - text: "Awesome! Feel free to ask for more anytime!"
+
+  # Denial responses
+  utter_deny:
+    - text: "No problem! Is there something else I can help you with?"
+    - text: "That's okay! Let me know if you'd like a different type of quote!"
+    - text: "No worries! What else can I help you with?"
+
+  # Thank you responses
+  utter_thank:
+    - text: "You're welcome! Happy to help!"
+    - text: "My pleasure! Come back anytime for more inspiration!"
+    - text: "Glad I could help! Feel free to ask for more quotes!"
+
+  # Motivation quote responses
+  utter_motivation_quote:
+    - text: "Here's a motivational quote for you: {quote}"
+
+  # Love quote responses
+  utter_love_quote:
+    - text: "Here's a love quote for you: {quote}"
+
+  # Life quote responses
+  utter_life_quote:
+    - text: "Here's a life quote for you: {quote}"
+
+  # Success quote responses
+  utter_success_quote:
+    - text: "Here's a success quote for you: {quote}"
+
+  # Inspirational quote responses
+  utter_inspirational_quote:
+    - text: "Here's an inspirational quote for you: {quote}"
+
+  # Friendship quote responses
+  utter_friendship_quote:
+    - text: "Here's a friendship quote for you: {quote}"
+
+  # Wisdom quote responses
+  utter_wisdom_quote:
+    - text: "Here's a wisdom quote for you: {quote}"
+
+  # Any quote responses
+  utter_any_quote:
+    - text: "Here's a quote for you: {quote}"
+
+  # Mood-based responses
+  utter_happy_mood:
+    - text: "I'm glad you're feeling happy! Here's a quote to match your positive energy: {quote}"
+
+  utter_sad_mood:
+    - text: "I'm sorry you're feeling sad. Here's a quote to lift your spirits: {quote}"
+
+  utter_stressed_mood:
+    - text: "It sounds like you're feeling stressed. Here's a calming quote for you: {quote}"
+
+  utter_tired_mood:
+    - text: "You sound tired. Here's some inspiration to give you energy: {quote}"
+
+  utter_excited_mood:
+    - text: "Your excitement is contagious! Here's a quote to celebrate: {quote}"
+
+  utter_angry_mood:
+    - text: "I understand you're upset. Here's a quote to help you find peace: {quote}"
+
+  # Default fallback
+  utter_default:
+    - text: "I'm not sure I understood that. Would you like a motivational, love, life, success, inspirational, friendship, or wisdom quote?"
+    - text: "I didn't quite get that. Try asking for a specific type of quote like 'motivational quote' or 'love quote'."
+
+actions:
+  - action_get_motivation_quote
+  - action_get_love_quote
+  - action_get_life_quote
+  - action_get_success_quote
+  - action_get_inspirational_quote
+  - action_get_friendship_quote
+  - action_get_wisdom_quote
+  - action_get_any_quote
+  - action_get_mood_quote
+  - action_default_fallback
+
+slots:
+  category:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  quote:
+    type: text
+    mappings: []
+  mood:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+

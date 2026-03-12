@@ -1,0 +1,3 @@
+# This directory will contain trained Rasa models
+# Run `rasa train` to generate models
+

@@ -1,0 +1,36 @@
+# This file contains the different endpoints for your bot
+# https://rasa.com/docs/rasa/endpoints/
+
+# Action server configuration
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Tracker store configuration
+# https://rasa.com/docs/rasa/tracker-stores
+#tracker_store:
+#  type: redis
+#  url: <redis url>
+#  key_prefix: <key prefix>
+
+# Lock store configuration
+# https://rasa.com/docs/rasa/lock-stores
+#lock_store:
+#  type: redis
+#  url: <redis url>
+
+# NLU endpoint configuration
+#nlu:
+#  url: "http://localhost:5000/model"
+
+# Core endpoint configuration
+#core:
+#  url: "http://localhost:5005"
+
+# You can configure an event broker to stream events to a different service
+# https://rasa.com/docs/rasa/event-brokers
+#event_broker:
+#  url: <broker_url>
+#  username: <username>
+#  password: <password>
+#  queue: <queue_name>
+

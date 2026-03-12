@@ -1,0 +1,311 @@
+version: "3.1"
+
+nlu:
+# Greeting Intent
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good afternoon
+    - good evening
+    - hey there
+    - hi there
+    - howdy
+    - what's up
+    - yo
+    - good day
+    - hey buddy
+    - hiya
+    - morning
+    - afternoon
+    - evening
+
+# Goodbye Intent
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - see ya
+    - later
+    - take care
+    - have a nice day
+    - good night
+    - night
+    - peace out
+    - bye bye
+    - I'll be going now
+    - see you later
+    - catch you later
+
+# Affirmation Intent
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - sure
+    - ok
+    - okay
+    - of course
+    - definitely
+    - absolutely
+    - that's right
+    - correct
+    - yes please
+    - yeah that would be great
+    - sure thing
+    - ok sounds good
+    - yes i would like that
+    - affirmative
+
+# Denial Intent
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - not really
+    - no thanks
+    - not interested
+    - maybe later
+    - not now
+    - I don't think so
+    - no i don't want that
+    - negative
+    - I'd rather not
+    - not that one
+
+# Thank You Intent
+- intent: thank
+  examples: |
+    - thank you
+    - thanks
+    - thank you so much
+    - thanks a lot
+    - many thanks
+    - appreciate it
+    - thank you very much
+    - thanks for helping
+    - appreciate your help
+    - thanks a bunch
+
+# Motivation Quote Intent
+- intent: request_motivation_quote
+  examples: |
+    - give me a motivational quote
+    - I need motivation
+    - motivate me
+    - motivational quote
+    - give me motivation
+    - I need some motivation
+    - motivational quotes please
+    - inspire me
+    - I need to be motivated
+    - boost my motivation
+    - something motivating
+    - motivate me please
+    - give me an inspiring quote
+    - I need inspiration
+    - inspirational quote
+    - can you motivate me
+    - tell me something motivating
+    - I want a motivational quote
+    - give me something to motivate me
+    - motivational
+    - motivate
+    - motivation
+    - inspire
+    - inspiring
+
+# Love Quote Intent
+- intent: request_love_quote
+  examples: |
+    - give me a love quote
+    - I need love quotes
+    - romantic quote
+    - love quote please
+    - tell me a love quote
+    - give me something romantic
+    - I want a love quote
+    - love quotes
+    - quote about love
+    - can you give me a love quote
+    - love
+    - romantic
+    - I love
+    - about love
+    - love story
+
+# Life Quote Intent
+- intent: request_life_quote
+  examples: |
+    - give me a life quote
+    - quote about life
+    - life quote please
+    - tell me about life
+    - give me life wisdom
+    - I want a life quote
+    - about life
+    - life
+    - living
+    - life lessons
+    - life quote
+    - quotes about life
+
+# Success Quote Intent
+- intent: request_success_quote
+  examples: |
+    - give me a success quote
+    - I need success quotes
+    - quote about success
+    - success quote please
+    - tell me about success
+    - I want to be successful
+    - give me success wisdom
+    - success
+    - successful
+    - achievement
+    - winning
+    - accomplishment
+
+# Inspirational Quote Intent
+- intent: request_inspirational_quote
+  examples: |
+    - give me an inspirational quote
+    - I need inspiration
+    - inspire me please
+    - inspirational
+    - inspire
+    - inspiring quote
+    - give me inspiration
+    - something inspiring
+    - lift my spirits
+    - positive quote
+    - uplifting quote
+
+# Friendship Quote Intent
+- intent: request_friendship_quote
+  examples: |
+    - give me a friendship quote
+    - quote about friends
+    - friend quote please
+    - tell me about friendship
+    - I need friend quotes
+    - friendship
+    - friends
+    - best friend
+    - true friend
+    - friend
+
+# Wisdom Quote Intent
+- intent: request_wisdom_quote
+  examples: |
+    - give me a wisdom quote
+    - quote about wisdom
+    - wise quote please
+    - tell me something wise
+    - I need wise words
+    - wisdom
+    - wise
+    - wise words
+    - philosophical
+    - deep quote
+
+# Any Quote Intent
+- intent: request_any_quote
+  examples: |
+    - give me a quote
+    - quote please
+    - tell me a quote
+    - I want a quote
+    - any quote
+    - random quote
+    - quote of the day
+    - inspire me with a quote
+    - give me something to think about
+    - share a quote
+
+# Mood: Happy
+- intent: mood_happy
+  examples: |
+    - I feel happy
+    - I'm so happy
+    - feeling great
+    - I'm feeling good
+    - I'm excited
+    - I'm joyful
+    - I'm thrilled
+    - I'm content
+    - I'm pleased
+    - I'm delighted
+
+# Mood: Sad
+- intent: mood_sad
+  examples: |
+    - I feel sad
+    - I'm feeling down
+    - I'm depressed
+    - I'm unhappy
+    - I feel blue
+    - I'm heartbroken
+    - I'm lonely
+    - I feel terrible
+    - I'm feeling bad
+    - I'm miserable
+
+# Mood: Stressed
+- intent: mood_stressed
+  examples: |
+    - I'm stressed
+    - I'm under pressure
+    - I'm anxious
+    - I'm overwhelmed
+    - I'm stressed out
+    - I feel stressed
+    - too much压力
+    - I'm tensed
+    - I'm nervous
+    - I'm worried
+
+# Mood: Tired
+- intent: mood_tired
+  examples: |
+    - I'm tired
+    - I'm exhausted
+    - I'm sleepy
+    - I'm drained
+    - I need energy
+    - I'm fatigued
+    - I'm weary
+    - I'm worn out
+    - I feel exhausted
+    - I need motivation
+
+# Mood: Excited
+- intent: mood_excited
+  examples: |
+    - I'm excited
+    - I can't wait
+    - I'm thrilled
+    - I'm pumped
+    - I'm enthusiastic
+    - I'm fired up
+    - I'm very happy
+    - I'm looking forward to it
+    - I'm so excited
+
+# Mood: Angry
+- intent: mood_angry
+  examples: |
+    - I'm angry
+    - I'm mad
+    - I'm frustrated
+    - I'm annoyed
+    - I'm irritated
+    - I'm upset
+    - I'm furious
+    - I'm livid
+    - I'm angry about this
+
