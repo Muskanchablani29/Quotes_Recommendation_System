@@ -7,6 +7,7 @@ from django.contrib.auth import get_user_model
 from django.db.models import Q, Count, Avg, F
 from django.core.cache import cache
 from django.utils import timezone
+from django.conf import settings
 from datetime import timedelta
 import requests
 import random
@@ -77,7 +78,7 @@ def login(request):
 # Quote ViewSet
 class QuoteViewSet(viewsets.ModelViewSet):
     queryset = Quote.objects.all()
-    serializer_class = QuoteSerializer
+    serializer_class = QuoteListSerializer
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['text', 'author__name', 'tags__name']
     ordering_fields = ['created_at', 'view_count', 'rating_avg', 'favorite_count']
@@ -381,16 +382,23 @@ def chat(request):
         if response.status_code == 200:
             bot_responses = response.json()
             
+            # Extract text from Rasa response
+            response_text = bot_responses[0]['text'] if bot_responses else "I'm here to help!"
+            
             # Track analytics
             if request.user.is_authenticated:
                 track_analytics('chat_message', request.user, metadata={'message': message})
             
-            return Response({'responses': bot_responses})
+            return Response({
+                'success': True,
+                'response': response_text,
+                'source': '🤖 Rasa'
+            })
         
-        return Response({'error': 'Rasa server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({'success': False, 'error': 'Rasa server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
     except requests.exceptions.RequestException as e:
-        return Response({'error': str(e)}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+        return Response({'success': False, 'error': str(e)}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
 
 
 # Mood Detection

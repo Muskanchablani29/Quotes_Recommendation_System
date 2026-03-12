@@ -29,20 +29,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     # Third party apps
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
     'drf_yasg',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     # Local apps
     'quotes',
 ]
-
-SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -171,36 +165,7 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-# Redis Cache Configuration
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': os.getenv('REDIS_URL', 'redis://127.0.0.1:6379/1'),
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        },
-        'KEY_PREFIX': 'quotes',
-        'TIMEOUT': 300,
-    }
-}
 
-# Celery Configuration
-CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://127.0.0.1:6379/0')
-CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://127.0.0.1:6379/0')
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
-CELERY_BEAT_SCHEDULE = {
-    'send-daily-quotes': {
-        'task': 'quotes.tasks.send_daily_quotes',
-        'schedule': timedelta(hours=24),
-    },
-    'update-trending-quotes': {
-        'task': 'quotes.tasks.update_trending_quotes',
-        'schedule': timedelta(hours=1),
-    },
-}
 
 # Rasa server configuration
 RASA_API_URL = os.getenv('RASA_API_URL', 'http://localhost:5005')
